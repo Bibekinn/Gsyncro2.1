@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0;url=shop.html?category=ethnic">
+  <title>Ethnic Collection — GSYNCRO</title>
+  <script>window.location.replace('shop.html?category=ethnic');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ethnic-collection.css">
+</head>
+
+<body class="ethnic-page">
+
+  <nav id="navbar" class="scrolled">
+    <a href="index.html" class="nav-logo">GSYNCRO</a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="accessories.html">Accessories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="javascript:void(0)" class="cart-btn" id="cartBtn" role="button" aria-label="Open bag">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+      <button class="hamburger" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+    <a href="accessories.html" onclick="closeMobileMenu()">Accessories</a>
+    <a href="about.html" onclick="closeMobileMenu()">About</a>
+    <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+  </div>
+
+  <!-- SECTION 1 — HERO -->
+  <header class="ec-hero">
+    <img class="ec-hero-bg"
+      src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1600&q=85"
+      alt="Ethnic fusion fashion">
+    <div class="ec-hero-overlay"></div>
+    <div class="ec-hero-content">
+      <p class="ec-label">Limited Edition</p>
+      <h1 class="ec-hero-title">A Celebration of <em>Heritage</em></h1>
+      <p class="ec-hero-sub">Rooted in tradition. Reimagined for today. Curated ethnic pieces inspired by timeless
+        elegance.</p>
+      <div class="ec-hero-ctas">
+        <a href="shop.html?category=ethnic" class="btn-primary ec-btn-primary">Shop Ethnic Collection</a>
+        <a href="#featured" class="btn-outline ec-btn-outline">Explore Looks</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 2 — BRAND STORY -->
+  <section class="ec-story">
+    <div class="ec-story-image">
+      <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=700&q=85"
+        alt="Heritage textiles and embroidery">
+    </div>
+    <div class="ec-story-text">
+      <p class="section-label">Our Vision</p>
+      <h2 class="section-title">Tradition, <em>Reimagined</em></h2>
+      <p>At GSYNCRO, heritage is not a costume — it is a living language. We honour the artistry of hand embroidery,
+        block printing, and silk weaving while shaping silhouettes for the woman who moves between celebration and
+        everyday grace.</p>
+      <p>Each piece in our Ethnic Collection balances cultural depth with contemporary ease: fluid drapes, refined
+        tailoring, and palettes drawn from warm ivory, antique gold, and muted rose. Designed in Nepal and worn
+        worldwide, these looks carry tradition forward without looking back.</p>
+      <p>From festive gatherings to intimate ceremonies, discover ethnic wear that feels both deeply rooted and
+        unmistakably modern.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — CURATED COLLECTION -->
+  <section class="ec-collection" id="featured">
+    <div class="ec-collection-inner">
+      <div class="ec-section-header">
+        <div>
+          <p class="section-label">Curated For You</p>
+          <h2 class="section-title">The Ethnic <em>Collection</em></h2>
+        </div>
+        <a href="shop.html?category=ethnic" class="view-all">View All in Shop</a>
+      </div>
+      <p class="ec-products-count" id="ethnicCount">Loading collection…</p>
+      <div class="products-grid" id="ethnicProductsGrid"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — STYLE CATEGORIES -->
+  <section class="ec-styles">
+    <div class="ec-styles-intro">
+      <p class="section-label">Style Edit</p>
+      <h2 class="section-title">Dress the <em>Moment</em></h2>
+      <p class="ec-styles-sub">Editorial moods for every chapter of celebration — from luminous festivities to quiet,
+        modern heritage.</p>
+    </div>
+    <div class="ec-style-grid">
+      <article class="ec-style-card">
+        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&q=80" alt="Festive wear">
+        <div class="ec-style-overlay"></div>
+        <div class="ec-style-info">
+          <h3>Festive Wear</h3>
+          <p>Radiant silhouettes for luminous evenings</p>
+        </div>
+      </article>
+      <article class="ec-style-card">
+        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&q=80" alt="Wedding guest looks">
+        <div class="ec-style-overlay"></div>
+        <div class="ec-style-info">
+          <h3>Wedding Guest Looks</h3>
+          <p>Graceful presence without overshadowing</p>
+        </div>
+      </article>
+      <article class="ec-style-card">
+        <img src="https://images.unsplash.com/photo-1582552938352-17690281faff?w=600&q=80" alt="Modern heritage">
+        <div class="ec-style-overlay"></div>
+        <div class="ec-style-info">
+          <h3>Modern Heritage</h3>
+          <p>Tradition translated for everyday elegance</p>
+        </div>
+      </article>
+      <article class="ec-style-card">
+        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80" alt="Artisan details">
+        <div class="ec-style-overlay"></div>
+        <div class="ec-style-info">
+          <h3>Artisan Details</h3>
+          <p>Handwork, texture, and soul in every stitch</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — PREMIUM CTA -->
+  <section class="ec-cta">
+    <p class="section-label">Timeless Elegance</p>
+    <h2 class="section-title">Elegance Passed Through <em>Generations</em></h2>
+    <p class="ec-cta-text">Discover thoughtfully curated ethnic silhouettes designed for the modern woman.</p>
+    <a href="shop.html?category=ethnic" class="btn-primary ec-cta-btn">Shop Collection</a>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">GSYNCRO</a>
+        <p>Curated women's fashion and accessories. Delivered worldwide with care, elegance, and intention.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="shop.html?category=street-style" aria-label="Street Style">Street Style</a></li>
+          <li><a href="shop.html?category=office-wear" aria-label="Office Wear">Office Wear</a></li>
+          <li><a href="shop.html?category=casual" aria-label="Casual">Casual</a></li>
+          <li><a href="shop.html?category=night-luxe" aria-label="Night Luxe">Night Luxe</a></li>
+          <li><a href="accessories.html" aria-label="Accessories">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Help</h5>
+        <ul>
+          <li><a href="shipping.html" aria-label="Shipping Info">Shipping Info</a></li>
+          <li><a href="returns.html" aria-label="Returns">Returns</a></li>
+          <li><a href="size-guide.html" aria-label="Size Guide">Size Guide</a></li>
+          <li><a href="track-order.html" aria-label="Track Order">Track Order</a></li>
+          <li><a href="contact.html" aria-label="Contact Us">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html" aria-label="About gsyncro">About gsyncro</a></li>
+          <li><a href="careers.html" aria-label="Careers">Careers</a></li>
+          <li><a href="press.html" aria-label="Press">Press</a></li>
+          <li><a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a></li>
+          <li><a href="terms.html" aria-label="Terms of Service">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 GSYNCRO. All rights reserved.</p>
+      <a href="index.html" aria-label="gsyncro.com">gsyncro.com</a>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartSidebar">
+    <div class="cart-header">
+      <h2>YOUR BAG (<span id="bagCount">0</span>)</h2>
+      <button onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>SUBTOTAL</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>SHIPPING</span>
+        <span id="cartShipping">FREE</span>
+      </div>
+      <div class="summary-row total">
+        <span>TOTAL</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="view-bag-btn">VIEW BAG</button>
+      <button class="checkout-btn">CHECKOUT</button>
+    </div>
+  </div>
+
+  <div class="cart-toast" id="cartToast">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span id="toastText">Item added to your bag</span>
+  </div>
+
+  <script src="store.js"></script>
+  <script src="common.js"></script>
+  <script src="ethnic-collection.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Bag — GSYNCRO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+    /* ── PAGE LAYOUT ── */ 
+    .bag-page {
+      padding-top: var(--nav-height);
+      min-height: 100vh;
+    }
+
+    /* ── PAGE HERO ── */
+    .bag-hero {
+      background: var(--black);
+      padding: 3.5rem 4rem 3rem;
+      border-bottom: 1px solid rgba(247,244,239,0.08);
+    }
+
+    .bag-hero .breadcrumbs {
+      margin-bottom: 1.2rem;
+    }
+
+    .bag-hero .breadcrumbs a,
+    .bag-hero .breadcrumbs span {
+      color: rgba(247,244,239,0.4);
+    }
+
+    .bag-hero .breadcrumbs .current {
+      color: var(--gold);
+    }
+
+    .bag-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1;
+    }
+
+    .bag-hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .bag-item-count {
+      font-size: 0.78rem;
+      color: rgba(247,244,239,0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.6rem;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .bag-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 0;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 4rem 6rem;
+      align-items: start;
+    }
+
+    /* ── ITEMS SECTION ── */
+    .bag-items-section {
+      padding-top: 3rem;
+      padding-right: 4rem;
+      border-right: 1px solid var(--warm);
+    }
+
+    .bag-items-header {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--warm);
+      margin-bottom: 0;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .bag-items-header span:last-child {
+      min-width: 80px;
+      text-align: right;
+    }
+
+    /* ── SINGLE ITEM ROW ── */
+    .bag-item-row {
+      display: grid;
+      grid-template-columns: 110px 1fr auto;
+      gap: 1.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--warm);
+      align-items: start;
+    }
+
+    .bag-item-row img {
+      width: 110px;
+      height: 140px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .bag-item-row img:hover {
+      opacity: 0.85;
+    }
+
+    .bag-item-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .bag-item-cat {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .bag-item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text);
+      cursor: pointer;
+      transition: color 0.3s;
+      line-height: 1.2;
+    }
+
+    .bag-item-name:hover {
+      color: var(--rose);
+    }
+
+    .bag-item-size {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .bag-item-size span {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* qty control */
+    .bag-qty {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--warm);
+      width: fit-content;
+      margin-top: 0.8rem;
+    }
+
+    .bag-qty-btn {
+      width: 34px;
+      height: 34px;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      transition: background 0.2s;
+    }
+
+    .bag-qty-btn:hover {
+      background: var(--warm);
+    }
+
+    .bag-qty-num {
+      width: 34px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-left: 1px solid var(--warm);
+      border-right: 1px solid var(--warm);
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bag-item-remove {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: underline;
+      margin-top: 0.8rem;
+      transition: color 0.3s;
+      display: block;
+    }
+
+    .bag-item-remove:hover {
+      color: var(--rose);
+    }
+
+    /* price col */
+    .bag-item-price-col {
+      text-align: right;
+      padding-top: 0.2rem;
+    }
+
+    .bag-item-total {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--rose);
+    }
+
+    .bag-item-each {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ── CONTINUE SHOPPING ── */
+    .continue-row {
+      padding-top: 2rem;
+    }
+
+    .continue-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+
+    .continue-link:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    /* ── ORDER SUMMARY ── */
+    .bag-summary {
+      position: sticky;
+      top: calc(var(--nav-height) + 2rem);
+      padding: 3rem 0 0 3.5rem;
+    }
+
+    .summary-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--warm);
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .summary-line .s-label {
+      color: var(--muted);
+    }
+
+    .summary-line .s-value {
+      font-weight: 500;
+    }
+
+    .shipping-note {
+      font-size: 0.72rem;
+      color: var(--rose);
+      background: rgba(181,100,90,0.07);
+      padding: 0.8rem 1rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+      border-top: 1px solid var(--warm);
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-total .t-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .summary-total .t-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--rose);
+    }
+
+    /* promo */
+    .promo-row {
+      display: flex;
+      gap: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .promo-input {
+      flex: 1;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--warm);
+      border-right: none;
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .promo-input:focus {
+      border-color: var(--black);
+    }
+
+    .promo-input::placeholder {
+      color: var(--muted);
+    }
+
+    .promo-apply {
+      padding: 0.85rem 1.2rem;
+      background: var(--black);
+      color: var(--cream);
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .promo-apply:hover {
+      background: var(--rose);
+    }
+
+    /* checkout btn */
+    .btn-checkout {
+      width: 100%;
+      padding: 1.15rem;
+      background: var(--black);
+      color: var(--cream);
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-bottom: 0.8rem;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn-checkout:hover {
+      background: var(--rose);
+      color: var(--cream);
+    }
+
+    .secure-note {
+      text-align: center;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* trust badges */
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--warm);
+    }
+
+    .trust-item {
+      text-align: center;
+    }
+
+    .trust-item .t-icon {
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .trust-item p {
+      font-size: 0.62rem;
+      color: var(--muted);
+      line-height: 1.5;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── EMPTY STATE ── */
+    .bag-empty {
+      display: none;
+      text-align: center;
+      padding: 6rem 2rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .bag-empty.show {
+      display: block;
+    }
+
+    .bag-empty-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+    }
+
+    .bag-empty h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin-bottom: 0.8rem;
+    }
+
+    .bag-empty h2 em {
+      font-style: italic;
+    }
+
+    .bag-empty p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .bag-hero { padding: 2.5rem 2rem 2rem; }
+      .bag-layout {
+        grid-template-columns: 1fr;
+        padding: 0 2rem 4rem;
+      }
+      .bag-items-section {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--warm);
+        padding-bottom: 2.5rem;
+      }
+      .bag-summary {
+        position: static;
+        padding: 2.5rem 0 0 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .bag-item-row {
+        grid-template-columns: 80px 1fr;
+        gap: 1rem;
+      }
+      .bag-item-row img {
+        width: 80px;
+        height: 105px;
+      }
+      .bag-item-price-col {
+        grid-column: 2;
+        text-align: left;
+      }
+      .trust-row { grid-template-columns: 1fr; gap: 0.8rem; }
+      .bag-items-header { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar" class="scrolled">
+  <a href="index.html" class="nav-logo">GSYNCRO</a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="accessories.html">Accessories</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button id="cartBtn" class="cart-btn" aria-label="Open bag">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <button class="hamburger" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+  <a href="accessories.html" onclick="closeMobileMenu()">Accessories</a>
+  <a href="about.html" onclick="closeMobileMenu()">About</a>
+  <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- ── CART DRAWER (shared) ── -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Your Bag (<span id="bagCount">0</span>)</h2>
+    <button onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-summary">
+    <div class="summary-row"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+    <div class="summary-row"><span>Shipping</span><span id="cartShipping">$0.00</span></div>
+    <div class="summary-row total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    <button class="view-bag-btn" onclick="location.href='cart.html'">View Bag</button>
+    <button class="checkout-btn" onclick="location.href='checkout.html'">Checkout</button>
+  </div>
+</div>
+
+<!-- ── TOAST ── -->
+<div class="cart-toast" id="cartToast">
+  <span>✓</span>
+  <span id="toastText">Item added to your bag</span>
+</div>
+
+<!-- ── PAGE ── -->
+<div class="bag-page">
+
+  <!-- Hero -->
+  <div class="bag-hero">
+    <div class="breadcrumbs">
+      <a href="index.html">Home</a>
+      <span class="separator">›</span>
+      <span class="current">Your Bag</span>
+    </div>
+    <h1>Your <em>Bag</em></h1>
+    <p class="bag-item-count" id="pageItemCount">0 items</p>
+  </div>
+
+  <!-- Empty state (shown when no items) -->
+  <div class="bag-empty" id="bagEmpty">
+    <div><i class="fa-solid fa-bag-shopping"></i></div>
+    <h2>Your bag is <em>empty</em></h2>
+    <p>Looks like you haven't added anything yet. Explore our collections and find something you love.</p>
+    <a href="shop.html" class="btn-primary">Start Shopping</a>
+  </div>
+
+  <!-- Bag layout (shown when has items) -->
+  <div class="bag-layout" id="bagLayout" style="display:none">
+
+    <!-- Items -->
+    <div class="bag-items-section">
+      <div class="bag-items-header">
+        <span>Product</span>
+        <span>Quantity</span>
+        <span>Total</span>
+      </div>
+      <div id="bagItemsList"></div>
+      <div class="continue-row">
+        <a href="shop.html" class="continue-link">← Continue Shopping</a>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="bag-summary">
+      <h3 class="summary-title">Order Summary</h3>
+
+      <div class="summary-line">
+        <span class="s-label" id="subtotalLabel">Subtotal (0 items)</span>
+        <span class="s-value" id="summarySubtotal">$0.00</span>
+      </div>
+      <div class="summary-line">
+        <span class="s-label">Shipping</span>
+        <span class="s-value" id="summaryShipping">—</span>
+      </div>
+
+      <p class="shipping-note" id="shippingNote" style="display:none"></p>
+
+      <div class="summary-total">
+        <span class="t-label">Total</span>
+        <span class="t-value" id="summaryTotal">$0.00</span>
+      </div>
+
+      <!-- Promo code -->
+      <div class="promo-row">
+        <input class="promo-input" type="text" id="promoInput" placeholder="Promo code">
+        <button class="promo-apply" onclick="applyPromo()">Apply</button>
+      </div>
+
+      <a href="checkout.html" class="btn-checkout" id="checkoutLink">Proceed to Checkout →</a>
+      <p class="secure-note">🔒 Secure encrypted checkout</p>
+
+      <div class="trust-row">
+        <div class="trust-item">
+          <span class="t-icon">✦</span>
+          <p>Free shipping over $50</p>
+        </div>
+        <div class="trust-item">
+          <span class="t-icon">↩</span>
+          <p>30-day easy returns</p>
+        </div>
+        <div class="trust-item">
+          <span class="t-icon">⬡</span>
+          <p>Secure payments</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">GSYNCRO</a>
+      <p>Curated women's fashion and accessories. Delivered worldwide with care, elegance, and intention.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Shop</h5>
+      <ul>
+        <li><a href="shop.html?category=night-luxe">Night Luxe</a></li>
+        <li><a href="shop.html?category=street-style">Street Style</a></li>
+        <li><a href="shop.html?category=office-wear">Office Wear</a></li>
+        <li><a href="shop.html?category=casual">Casual</a></li>
+        <li><a href="shop.html?category=ethnic">Ethnic</a></li>
+        <li><a href="accessories.html">Accessories</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Help</h5>
+      <ul>
+        <li><a href="shipping.html">Shipping Info</a></li>
+        <li><a href="returns.html">Returns</a></li>
+        <li><a href="size-guide.html">Size Guide</a></li>
+        <li><a href="track-order.html">Track Order</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About GSYNCRO</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="press.html">Press</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 GSYNCRO. All rights reserved.</p>
+    <a href="#">gsyncro.com</a>
+  </div>
+</footer>
+
+<script src="store.js"></script>
+<script src="common.js"></script>
+<script>
+// ── Render the full bag page ──────────────────────────────
+function renderBagPage() {
+  const cart    = Cart.get();
+  const count   = Cart.count();
+  const subtotal = Cart.total();
+  const shipping = subtotal >= 50 ? 0 : 9.99;
+  const total   = subtotal + shipping;
+
+  // Update page count
+  document.getElementById('pageItemCount').textContent =
+    `${count} item${count !== 1 ? 's' : ''}`;
+
+  // Show empty or filled layout
+  const emptyEl  = document.getElementById('bagEmpty');
+  const layoutEl = document.getElementById('bagLayout');
+
+  if (cart.length === 0) {
+    emptyEl.classList.add('show');
+    layoutEl.style.display = 'none';
+    return;
+  }
+
+  emptyEl.classList.remove('show');
+  layoutEl.style.display = 'grid';
+
+  // Render items
+  document.getElementById('bagItemsList').innerHTML = cart.map(item => {
+    const catLabel = item.category
+      ? item.category.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ')
+      : '';
+    return `
+      <div class="bag-item-row">
+        <img src="${item.img}" alt="${item.name}"
+             onclick="location.href='product-detail.html?id=${item.id}'">
+
+        <div class="bag-item-details">
+          <span class="bag-item-cat">${catLabel}</span>
+          <span class="bag-item-name"
+                onclick="location.href='product-detail.html?id=${item.id}'">${item.name}</span>
+          <span class="bag-item-size">Size: <span>${item.size}</span></span>
+
+          <div class="bag-qty">
+            <button class="bag-qty-btn" onclick="pageChangeQty('${item.key}', -1)">−</button>
+            <span class="bag-qty-num">${item.qty}</span>
+            <button class="bag-qty-btn" onclick="pageChangeQty('${item.key}', 1)">+</button>
+          </div>
+          <button class="bag-item-remove" onclick="pageRemove('${item.key}')">Remove</button>
+        </div>
+
+        <div class="bag-item-price-col">
+          <p class="bag-item-total">$${(item.price * item.qty).toFixed(2)}</p>
+          <p class="bag-item-each">$${item.price.toFixed(2)} each</p>
+        </div>
+      </div>`;
+  }).join('');
+
+  // Summary
+  document.getElementById('subtotalLabel').textContent =
+    `Subtotal (${count} item${count !== 1 ? 's' : ''})`;
+  document.getElementById('summarySubtotal').textContent = `$${subtotal.toFixed(2)}`;
+
+  const shippingEl = document.getElementById('summaryShipping');
+  const noteEl     = document.getElementById('shippingNote');
+
+  if (shipping === 0) {
+    shippingEl.innerHTML = '<span style="color:var(--rose);font-weight:500">FREE</span>';
+    noteEl.style.display = 'none';
+  } else {
+    shippingEl.textContent = `$${shipping.toFixed(2)}`;
+    noteEl.style.display   = 'block';
+    noteEl.textContent =
+      `Add $${(50 - subtotal).toFixed(2)} more for free shipping!`;
+  }
+
+  document.getElementById('summaryTotal').textContent = `$${total.toFixed(2)}`;
+}
+
+// ── Cart actions from page ────────────────────────────────
+function pageChangeQty(key, delta) {
+  Cart.changeQty(key, delta);
+  renderBagPage();
+}
+
+function pageRemove(key) {
+  Cart.remove(key);
+  renderBagPage();
+}
+
+function applyPromo() {
+  const code = document.getElementById('promoInput').value.trim().toUpperCase();
+  if (code === 'GSYNCRO10') {
+    showToast('10% promo code applied! ✓');
+  } else {
+    showToast('Invalid promo code.');
+  }
+}
+
+// Re-render when drawer updates cart too
+window.addEventListener('cartUpdated', renderBagPage);
+
+// Boot
+renderBagPage();
+</script>
+</body>
+</html>

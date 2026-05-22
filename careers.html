@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers — GSYNCRO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="info-pages.css">
+</head>
+<body>
+  <nav id="navbar" class="scrolled">
+    <a href="index.html" class="nav-logo">GSYNCRO</a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="accessories.html">Accessories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="javascript:void(0)" class="cart-btn" id="cartBtn" role="button" aria-label="Open bag"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+      <button class="hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+    <a href="accessories.html" onclick="closeMobileMenu()">Accessories</a>
+    <a href="about.html" onclick="closeMobileMenu()">About</a>
+    <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+  </div>
+  <main class="info-page-main">
+    <header class="info-hero">
+      <p class="section-label">Careers</p>
+      <h1>Join the GSYNCRO <em>Team</em></h1>
+      <p class="info-hero-lead">We are building a luxury womenswear brand rooted in craft, culture, and contemporary design. If you believe in thoughtful fashion and exceptional customer experience, we would love to hear from you.</p>
+    </header>
+    <div class="info-content">
+      <p>GSYNCRO is a growing fashion house founded in Nepal with a global audience. Our team blends editorial sensibility with ecommerce excellence — from curation and creative direction to operations and customer care.</p>
+      <h2>Available <em>Roles</em></h2>
+      <p>We are not actively hiring for full-time positions at this time. When roles open, they will appear below.</p>
+      <div class="careers-roles">
+        <div class="career-role">
+          <div><h3>E-Commerce Coordinator</h3><p>Kathmandu · Hybrid — Currently filled</p></div>
+        </div>
+        <div class="career-role">
+          <div><h3>Creative Content Associate</h3><p>Remote-friendly — Pipeline</p></div>
+        </div>
+      </div>
+      <h2>Open <em>Application</em></h2>
+      <p>No open positions that match your profile? We still welcome exceptional talent. Send your CV and a brief introduction — tell us what you would bring to GSYNCRO.</p>
+      <a href="mailto:bibekpyakurel4@gmail.com?subject=GSYNCRO%20Career%20Application" class="info-btn">Send Your CV</a>
+      <div class="info-note" style="margin-top:2rem;">Please use the subject line: <strong>GSYNCRO Career Application</strong>. We review open applications quarterly.</div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">GSYNCRO</a><p>Curated women's fashion and accessories.</p></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="press.html">Press</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 GSYNCRO. All rights reserved.</p></div>
+  </footer>
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartSidebar">
+    <div class="cart-header"><h2>YOUR BAG (<span id="bagCount">0</span>)</h2><button onclick="closeCart()">✕</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary">
+      <div class="summary-row"><span>SUBTOTAL</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="summary-row total"><span>TOTAL</span><span id="cartTotal">$0.00</span></div>
+      <button class="view-bag-btn">VIEW BAG</button><button class="checkout-btn">CHECKOUT</button>
+    </div>
+  </div>
+  <script src="store.js"></script><script src="common.js"></script>
+</body>
+</html>

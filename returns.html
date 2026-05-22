@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Returns & Exchanges — GSYNCRO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="info-pages.css">
+</head>
+<body>
+  <nav id="navbar" class="scrolled">
+    <a href="index.html" class="nav-logo">GSYNCRO</a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="accessories.html">Accessories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="javascript:void(0)" class="cart-btn" id="cartBtn" role="button" aria-label="Open bag"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+      <button class="hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+    <a href="accessories.html" onclick="closeMobileMenu()">Accessories</a>
+    <a href="about.html" onclick="closeMobileMenu()">About</a>
+    <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+  </div>
+  <main class="info-page-main">
+    <header class="info-hero">
+      <p class="section-label">Peace of Mind</p>
+      <h1>Returns &amp; <em>Exchanges</em></h1>
+      <p class="info-hero-lead">We want you to love every GSYNCRO piece. If something is not quite right, our returns process is straightforward, transparent, and handled with the same care we put into every order.</p>
+    </header>
+    <div class="info-content">
+      <h2>Return <em>Window</em></h2>
+      <p>You may return eligible items within <strong>14 days</strong> of delivery for a full refund to your original payment method. For exchanges, we recommend initiating your request within <strong>7 days</strong> to ensure your preferred size remains available.</p>
+      <h2>Product <em>Condition</em></h2>
+      <p>To qualify for a return or exchange, items must be:</p>
+      <ul>
+        <li>Unworn, unwashed, and free from perfume, makeup, or damage</li>
+        <li>In original packaging with all tags attached</li>
+        <li>Accompanied by your order confirmation or receipt</li>
+      </ul>
+      <h2>Non-Returnable <em>Items</em></h2>
+      <p>The following cannot be returned for hygiene and quality reasons:</p>
+      <ul>
+        <li>Earrings and intimate apparel (unless faulty)</li>
+        <li>Items marked as final sale or limited edition (where stated at purchase)</li>
+        <li>Customised or altered pieces</li>
+        <li>Gift cards</li>
+      </ul>
+      <h2>Refund <em>Timeline</em></h2>
+      <p>Once we receive and inspect your return, refunds are processed within 5–7 business days. Depending on your bank or payment provider, funds may take an additional 3–10 business days to appear on your statement.</p>
+      <h2>Exchange <em>Process</em></h2>
+      <p>To exchange a size or colour, contact us at <a href="contact.html">Contact</a> with your order number. We will guide you through return shipment and reissue of your preferred item. Exchanges are subject to stock availability.</p>
+      <div class="info-note">Sale items may be exchanged for store credit only unless defective. International return shipping costs are the customer's responsibility unless the item arrived damaged or incorrect.</div>
+      <p><a href="contact.html" class="info-btn">Start a Return Request</a></p>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">GSYNCRO</a><p>Curated women's fashion and accessories. Delivered worldwide with care, elegance, and intention.</p></div>
+      <div class="footer-col"><h5>Shop</h5><ul><li><a href="shop.html">Shop All</a></li><li><a href="accessories.html">Accessories</a></li></ul></div>
+      <div class="footer-col"><h5>Help</h5><ul><li><a href="shipping.html">Shipping Info</a></li><li><a href="returns.html">Returns</a></li><li><a href="size-guide.html">Size Guide</a></li><li><a href="track-order.html">Track Order</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="press.html">Press</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 GSYNCRO. All rights reserved.</p></div>
+  </footer>
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartSidebar">
+    <div class="cart-header"><h2>YOUR BAG (<span id="bagCount">0</span>)</h2><button onclick="closeCart()">✕</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary">
+      <div class="summary-row"><span>SUBTOTAL</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="summary-row"><span>SHIPPING</span><span id="cartShipping">FREE</span></div>
+      <div class="summary-row total"><span>TOTAL</span><span id="cartTotal">$0.00</span></div>
+      <button class="view-bag-btn">VIEW BAG</button><button class="checkout-btn">CHECKOUT</button>
+    </div>
+  </div>
+  <div class="cart-toast" id="cartToast"><i class="fa-solid fa-bag-shopping"></i><span id="toastText">Item added to your bag</span></div>
+  <script src="store.js"></script><script src="common.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Collection — GSYNCRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="shop.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <a href="index.html" class="nav-logo">GSYNCRO</a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="accessories.html">Accessories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="javascript:void(0)" class="cart-btn" id="cartBtn" role="button" aria-label="Open bag">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+      <button class="hamburger" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+    <a href="accessories.html" onclick="closeMobileMenu()">Accessories</a>
+    <a href="about.html" onclick="closeMobileMenu()">About</a>
+    <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+  </div>
+
+  <!-- SHOP HEADER -->
+  <header class="shop-header">
+    <div class="shop-header-content">
+      <nav class="breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <span class="current" id="breadcrumbCategory">Shop</span>
+      </nav>
+      <h1 class="shop-title" id="shopTitle">Our <em>Collection</em></h1>
+      <p class="shop-subtitle" id="shopSubtitle">Thoughtfully curated luxury, tailored for the modern woman.</p>
+    </div>
+  </header>
+
+  <section class="ethnic-category-banner" id="ethnicCategoryBanner" hidden>
+    <div class="ethnic-banner-text">
+      <p class="section-label">Limited Edition</p>
+      <h2 class="section-title">A Celebration of <em>Heritage</em></h2>
+      <p>Rooted in tradition. Reimagined for today. Each piece honours hand embroidery, artisan weaving, and the
+        timeless silhouettes of South Asia — curated for the woman who carries elegance into the modern world.</p>
+      <p>From festive Anarkalis to everyday kurta sets, discover ethnic wear designed with intention, quality, and
+        quiet luxury.</p>
+    </div>
+    <div class="ethnic-banner-visual">
+      <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=900&q=85" alt="Ethnic collection editorial">
+      <span class="ethnic-banner-tag">Handcrafted · Curated · Worldwide</span>
+    </div>
+  </section>
+
+  <!-- SHOP FILTER & PRODUCTS SECTION -->
+  <section class="shop-container">
+    <div class="search-sort-bar">
+      <!-- Search Input -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search products...">
+      </div>
+
+      <!-- Sorting Select -->
+      <div class="sort-box">
+        <label for="sortSelect">Sort By:</label>
+        <select id="sortSelect">
+          <option value="default">Featured</option>
+          <option value="newest">New Arrivals</option>
+          <option value="bestseller">Bestsellers</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="category-tabs" id="categoryTabs">
+      <button class="tab-btn active" data-category="all">All Clothes</button>
+      <button class="tab-btn" data-category="street-style">Street Style</button>
+      <button class="tab-btn" data-category="office-wear">Office Wear</button>
+      <button class="tab-btn" data-category="casual">Casual</button>
+      <button class="tab-btn" data-category="night-luxe">Night Luxe</button>
+    </div>
+
+    <div class="shop-layout">
+      <!-- Sidebar Filters -->
+      <aside class="shop-sidebar">
+        <!-- Size Filter -->
+        <div class="filter-section">
+          <h3>Filter by Size</h3>
+          <div class="size-options">
+            <button class="size-chip" data-size="XS">XS</button>
+            <button class="size-chip" data-size="S">S</button>
+            <button class="size-chip" data-size="M">M</button>
+            <button class="size-chip" data-size="L">L</button>
+            <button class="size-chip" data-size="XL">XL</button>
+            <button class="size-chip" data-size="XXL">XXL</button>
+            <button class="size-chip" data-size="Free Size">Free Size</button>
+            <button class="size-chip" data-size="One Size">One Size</button>
+          </div>
+        </div>
+
+        <!-- Availability Filter -->
+        <div class="filter-section">
+          <h3>Availability</h3>
+          <label class="checkbox-container">
+            <input type="checkbox" id="stockCheckbox">
+            <span class="checkmark"></span>
+            In Stock Only
+          </label>
+        </div>
+
+        <button class="clear-filters-btn" id="clearFiltersBtn">Clear All Filters</button>
+      </aside>
+
+      <!-- Products Grid -->
+      <main class="shop-content">
+        <p class="results-count" id="resultsCount">Showing 0 products</p>
+        <div class="products-grid" id="shopGrid">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div class="empty-icon">✦</div>
+          <h2>No curated pieces found</h2>
+          <p>Explore another collection or try resetting your filter criteria.</p>
+          <button class="btn-primary" onclick="clearAllFilters()">Reset All Filters</button>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">GSYNCRO</a>
+        <p>Curated women's fashion and accessories. Delivered worldwide with care, elegance, and intention.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="shop.html?category=street-style" aria-label="Street Style">Street Style</a></li>
+          <li><a href="shop.html?category=office-wear" aria-label="Office Wear">Office Wear</a></li>
+          <li><a href="shop.html?category=casual" aria-label="Casual">Casual</a></li>
+          <li><a href="shop.html?category=night-luxe" aria-label="Night Luxe">Night Luxe</a></li>
+          <li><a href="accessories.html" aria-label="Accessories">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Help</h5>
+        <ul>
+          <li><a href="shipping.html" aria-label="Shipping Info">Shipping Info</a></li>
+          <li><a href="returns.html" aria-label="Returns">Returns</a></li>
+          <li><a href="size-guide.html" aria-label="Size Guide">Size Guide</a></li>
+          <li><a href="track-order.html" aria-label="Track Order">Track Order</a></li>
+          <li><a href="contact.html" aria-label="Contact Us">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html" aria-label="About gsyncro">About gsyncro</a></li>
+          <li><a href="careers.html" aria-label="Careers">Careers</a></li>
+          <li><a href="press.html" aria-label="Press">Press</a></li>
+          <li><a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a></li>
+          <li><a href="terms.html" aria-label="Terms of Service">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 GSYNCRO. All rights reserved.</p>
+      <a href="index.html" aria-label="gsyncro.com">gsyncro.com</a>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartSidebar">
+    <div class="cart-header">
+      <h2>YOUR BAG (<span id="bagCount">0</span>)</h2>
+      <button onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Dynamically Rendered -->
+    </div>
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>SUBTOTAL</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>SHIPPING</span>
+        <span id="cartShipping">FREE</span>
+      </div>
+      <div class="summary-row total">
+        <span>TOTAL</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="view-bag-btn">VIEW BAG</button>
+      <button class="checkout-btn">CHECKOUT</button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="cart-toast" id="cartToast">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span id="toastText">Item added to your bag</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="store.js"></script>
+  <script src="common.js"></script>
+  <script src="shop.js"></script>
+</body>
+
+</html>

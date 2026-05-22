@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessories Collection — GSYNCRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="accessories.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <a href="index.html" class="nav-logo">GSYNCRO</a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="accessories.html">Accessories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="javascript:void(0)" class="cart-btn" id="cartBtn" role="button" aria-label="Open bag">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+      <button class="hamburger" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+    <a href="accessories.html" onclick="closeMobileMenu()">Accessories</a>
+    <a href="about.html" onclick="closeMobileMenu()">About</a>
+    <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=1400&q=80" alt="Accessories">
+    <div class="page-hero-content">
+      <p class="tag">The Collection</p>
+      <h1>Beautiful<br><em>Accessories</em></h1>
+      <p>From statement jewellery to everyday essentials — pieces that complete every look.</p>
+    </div>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="jewellery">Jewellery</button>
+    <button class="filter-btn" data-filter="bags">Bags</button>
+    <button class="filter-btn" data-filter="scarves">Scarves</button>
+    <button class="filter-btn" data-filter="sunglasses">Sunglasses</button>
+  </div>
+
+  <!-- PRODUCTS SECTION -->
+  <section class="products-section">
+    <p class="products-count" id="count">Showing 0 products</p>
+    <div class="grid" id="productsGrid"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">GSYNCRO</a>
+        <p>Curated women's fashion and accessories. Delivered worldwide with care, elegance, and intention.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="shop.html?category=street-style" aria-label="Street Style">Street Style</a></li>
+          <li><a href="shop.html?category=office-wear" aria-label="Office Wear">Office Wear</a></li>
+          <li><a href="shop.html?category=casual" aria-label="Casual">Casual</a></li>
+          <li><a href="shop.html?category=night-luxe" aria-label="Night Luxe">Night Luxe</a></li>
+          <li><a href="accessories.html" aria-label="Accessories">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Help</h5>
+        <ul>
+          <li><a href="shipping.html" aria-label="Shipping Info">Shipping Info</a></li>
+          <li><a href="returns.html" aria-label="Returns">Returns</a></li>
+          <li><a href="size-guide.html" aria-label="Size Guide">Size Guide</a></li>
+          <li><a href="track-order.html" aria-label="Track Order">Track Order</a></li>
+          <li><a href="contact.html" aria-label="Contact Us">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html" aria-label="About gsyncro">About gsyncro</a></li>
+          <li><a href="careers.html" aria-label="Careers">Careers</a></li>
+          <li><a href="press.html" aria-label="Press">Press</a></li>
+          <li><a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a></li>
+          <li><a href="terms.html" aria-label="Terms of Service">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 GSYNCRO. All rights reserved.</p>
+      <a href="index.html" aria-label="gsyncro.com">gsyncro.com</a>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartSidebar">
+    <div class="cart-header">
+      <h2>YOUR BAG (<span id="bagCount">0</span>)</h2>
+      <button onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Dynamic Items -->
+    </div>
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>SUBTOTAL</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>SHIPPING</span>
+        <span id="cartShipping">FREE</span>
+      </div>
+      <div class="summary-row total">
+        <span>TOTAL</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="view-bag-btn">VIEW BAG</button>
+      <button class="checkout-btn">CHECKOUT</button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="cart-toast" id="cartToast">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span id="toastText">Item added to your bag</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="store.js"></script>
+  <script src="common.js"></script>
+  <script src="accessories.js"></script>
+</body>
+
+</html>

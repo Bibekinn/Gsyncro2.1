@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Size Guide — GSYNCRO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="info-pages.css">
+</head>
+<body>
+  <nav id="navbar" class="scrolled">
+    <a href="index.html" class="nav-logo">GSYNCRO</a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="accessories.html">Accessories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="javascript:void(0)" class="cart-btn" id="cartBtn" role="button" aria-label="Open bag"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+      <button class="hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+    <a href="accessories.html" onclick="closeMobileMenu()">Accessories</a>
+    <a href="about.html" onclick="closeMobileMenu()">About</a>
+    <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+  </div>
+  <main class="info-page-main">
+    <header class="info-hero">
+      <p class="section-label">Fit &amp; Comfort</p>
+      <h1>Size <em>Guide</em></h1>
+      <p class="info-hero-lead">Find your perfect fit with our measurement charts. GSYNCRO pieces are designed with a refined, true-to-size fit — when between sizes, we generally recommend sizing up for relaxed silhouettes.</p>
+    </header>
+    <div class="info-content">
+      <h2>Women's Clothing <em>Chart</em></h2>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <thead><tr><th>Size</th><th>Bust (in)</th><th>Waist (in)</th><th>Hip (in)</th></tr></thead>
+          <tbody>
+            <tr><td>XS</td><td>31–32</td><td>24–25</td><td>34–35</td></tr>
+            <tr><td>S</td><td>33–34</td><td>26–27</td><td>36–37</td></tr>
+            <tr><td>M</td><td>35–36</td><td>28–29</td><td>38–39</td></tr>
+            <tr><td>L</td><td>37–39</td><td>30–32</td><td>40–42</td></tr>
+            <tr><td>XL</td><td>40–42</td><td>33–35</td><td>43–45</td></tr>
+            <tr><td>XXL</td><td>43–45</td><td>36–38</td><td>46–48</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h2>International <em>Conversion</em></h2>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <thead><tr><th>GSYNCRO</th><th>UK</th><th>US</th><th>EU</th></tr></thead>
+          <tbody>
+            <tr><td>XS</td><td>6</td><td>2</td><td>34</td></tr>
+            <tr><td>S</td><td>8</td><td>4</td><td>36</td></tr>
+            <tr><td>M</td><td>10</td><td>6</td><td>38</td></tr>
+            <tr><td>L</td><td>12</td><td>8–10</td><td>40–42</td></tr>
+            <tr><td>XL</td><td>14</td><td>12</td><td>44</td></tr>
+            <tr><td>XXL</td><td>16</td><td>14</td><td>46</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>How to Measure</h3>
+          <p><strong>Bust:</strong> Around the fullest part, keeping the tape parallel to the floor.<br><strong>Waist:</strong> At the natural waistline, typically the narrowest point.<br><strong>Hip:</strong> Around the fullest part of the hips, about 8" below the waist.</p>
+        </div>
+        <div class="info-card">
+          <h3>Fit Recommendations</h3>
+          <p><strong>Relaxed / ethnic:</strong> Size up for draped fits.<br><strong>Tailored / office:</strong> True to size.<br><strong>Bodycon:</strong> Snug fit — consider your preferred ease.</p>
+        </div>
+      </div>
+      <h2>Free Size &amp; <em>Accessories</em></h2>
+      <p>Sarees, dupattas, and select ethnic pieces marked <strong>Free Size</strong> are designed to accommodate a wide range of body types through adjustable draping or generous cuts. Accessories marked <strong>One Size</strong> — including jewellery, scarves, bags, and sunglasses — are universally sized unless otherwise noted on the product page.</p>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">GSYNCRO</a><p>Curated women's fashion and accessories.</p></div>
+      <div class="footer-col"><h5>Help</h5><ul><li><a href="shipping.html">Shipping</a></li><li><a href="returns.html">Returns</a></li><li><a href="size-guide.html">Size Guide</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 GSYNCRO. All rights reserved.</p></div>
+  </footer>
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartSidebar">
+    <div class="cart-header"><h2>YOUR BAG (<span id="bagCount">0</span>)</h2><button onclick="closeCart()">✕</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary">
+      <div class="summary-row"><span>SUBTOTAL</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="summary-row"><span>SHIPPING</span><span id="cartShipping">FREE</span></div>
+      <div class="summary-row total"><span>TOTAL</span><span id="cartTotal">$0.00</span></div>
+      <button class="view-bag-btn">VIEW BAG</button><button class="checkout-btn">CHECKOUT</button>
+    </div>
+  </div>
+  <div class="cart-toast" id="cartToast"><i class="fa-solid fa-bag-shopping"></i><span id="toastText">Item added to your bag</span></div>
+  <script src="store.js"></script><script src="common.js"></script>
+</body>
+</html>

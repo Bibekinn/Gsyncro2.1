@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Order — GSYNCRO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="info-pages.css">
+</head>
+<body>
+  <nav id="navbar" class="scrolled">
+    <a href="index.html" class="nav-logo">GSYNCRO</a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="accessories.html">Accessories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="javascript:void(0)" class="cart-btn" id="cartBtn" role="button" aria-label="Open bag"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+      <button class="hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+    <a href="accessories.html" onclick="closeMobileMenu()">Accessories</a>
+    <a href="about.html" onclick="closeMobileMenu()">About</a>
+    <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+  </div>
+  <main class="info-page-main">
+    <header class="info-hero">
+      <p class="section-label">Your Order</p>
+      <h1>Track <em>Order</em></h1>
+      <p class="info-hero-lead">Enter your order details below to view the latest status. Live carrier tracking will connect here once our fulfilment system is fully integrated.</p>
+    </header>
+    <form class="info-form" onsubmit="handleTrackSubmit(event)">
+      <div class="info-form-group">
+        <label for="orderId">Order ID</label>
+        <input type="text" id="orderId" name="orderId" placeholder="e.g. GS-102458" required>
+      </div>
+      <div class="info-form-group">
+        <label for="trackEmail">Email Address</label>
+        <input type="email" id="trackEmail" name="email" placeholder="Used at checkout" required>
+      </div>
+      <button type="submit" class="info-btn">Track Order</button>
+    </form>
+    <div class="tracking-card">
+      <p class="section-label" style="margin-bottom:1rem;">Order Progress</p>
+      <div class="tracking-steps">
+        <div class="tracking-step done"><div class="tracking-step-dot">✓</div><span>Processing</span></div>
+        <div class="tracking-step done"><div class="tracking-step-dot">✓</div><span>Packed</span></div>
+        <div class="tracking-step active"><div class="tracking-step-dot">→</div><span>Shipped</span></div>
+        <div class="tracking-step"><div class="tracking-step-dot">○</div><span>Out for Delivery</span></div>
+      </div>
+      <div class="tracking-result" id="trackingResult"></div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">GSYNCRO</a><p>Curated women's fashion and accessories.</p></div>
+      <div class="footer-col"><h5>Help</h5><ul><li><a href="shipping.html">Shipping</a></li><li><a href="returns.html">Returns</a></li><li><a href="track-order.html">Track Order</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 GSYNCRO. All rights reserved.</p></div>
+  </footer>
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartSidebar">
+    <div class="cart-header"><h2>YOUR BAG (<span id="bagCount">0</span>)</h2><button onclick="closeCart()">✕</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary">
+      <div class="summary-row"><span>SUBTOTAL</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="summary-row"><span>SHIPPING</span><span id="cartShipping">FREE</span></div>
+      <div class="summary-row total"><span>TOTAL</span><span id="cartTotal">$0.00</span></div>
+      <button class="view-bag-btn">VIEW BAG</button><button class="checkout-btn">CHECKOUT</button>
+    </div>
+  </div>
+  <script src="store.js"></script><script src="common.js"></script><script src="info-pages.js"></script>
+</body>
+</html>

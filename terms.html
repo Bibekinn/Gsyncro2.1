@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — GSYNCRO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="info-pages.css">
+</head>
+<body>
+  <nav id="navbar" class="scrolled">
+    <a href="index.html" class="nav-logo">GSYNCRO</a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="accessories.html">Accessories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="javascript:void(0)" class="cart-btn" id="cartBtn" role="button" aria-label="Open bag"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+      <button class="hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <main class="info-page-main">
+    <header class="info-hero">
+      <p class="section-label">Legal</p>
+      <h1>Terms of <em>Service</em></h1>
+      <p class="info-hero-lead">By using gsyncro.com and placing an order with GSYNCRO, you agree to the following terms. Please read them carefully.</p>
+    </header>
+    <div class="info-content">
+      <h2>Orders &amp; <em>Acceptance</em></h2>
+      <p>All orders are subject to availability and confirmation. We reserve the right to refuse or cancel orders due to stock limitations, pricing errors, or suspected fraud. You will receive an email confirmation when your order is accepted.</p>
+      <h2>Pricing &amp; <em>Payment</em></h2>
+      <p>Prices are listed in USD unless otherwise stated and include applicable product costs at checkout. Shipping, taxes, and duties may be added separately. We reserve the right to correct pricing errors before dispatch.</p>
+      <h2>Shipping &amp; <em>Returns</em></h2>
+      <p>Delivery terms are outlined in our <a href="shipping.html">Shipping Information</a>. Returns and exchanges are governed by our <a href="returns.html">Returns Policy</a>.</p>
+      <h2>Intellectual <em>Property</em></h2>
+      <p>All content on this website — including imagery, text, logos, and design — is owned by GSYNCRO or its licensors and may not be reproduced without written permission.</p>
+      <h2>Limitation of <em>Liability</em></h2>
+      <p>GSYNCRO is not liable for indirect, incidental, or consequential damages arising from use of our website or products, to the fullest extent permitted by law. Our liability for any claim shall not exceed the amount you paid for the relevant order.</p>
+      <h2>Governing <em>Terms</em></h2>
+      <p>These terms are governed by the laws of Nepal. Disputes shall be subject to the exclusive jurisdiction of courts in Kathmandu, unless mandatory consumer protection laws in your country provide otherwise.</p>
+      <p>Questions? Contact <a href="contact.html">Customer Care</a>.</p>
+    </div>
+  </main>
+  <footer><div class="footer-bottom"><p>© 2025 GSYNCRO. <a href="privacy.html">Privacy</a></p></div></footer>
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartSidebar">
+    <div class="cart-header"><h2>YOUR BAG (<span id="bagCount">0</span>)</h2><button onclick="closeCart()">✕</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary"><button class="view-bag-btn">VIEW BAG</button></div>
+  </div>
+  <script src="store.js"></script><script src="common.js"></script>
+</body>
+</html>

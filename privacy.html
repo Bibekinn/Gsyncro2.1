@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — GSYNCRO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="info-pages.css">
+</head>
+<body>
+  <nav id="navbar" class="scrolled">
+    <a href="index.html" class="nav-logo">GSYNCRO</a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="accessories.html">Accessories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="javascript:void(0)" class="cart-btn" id="cartBtn" role="button" aria-label="Open bag"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" id="cartCount">0</span></a>
+      <button class="hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <main class="info-page-main">
+    <header class="info-hero">
+      <p class="section-label">Legal</p>
+      <h1>Privacy <em>Policy</em></h1>
+      <p class="info-hero-lead">Last updated: May 2025. This policy explains how GSYNCRO collects, uses, and protects your personal information when you shop with us.</p>
+    </header>
+    <div class="info-content">
+      <h2>Information We <em>Collect</em></h2>
+      <p>When you place an order, subscribe to our newsletter, or contact us, we may collect your name, email address, shipping address, phone number, order history, and payment-related data processed securely by our payment partners.</p>
+      <h2>Cookies &amp; <em>Analytics</em></h2>
+      <p>We use cookies and similar technologies to remember your preferences, maintain your shopping bag, and understand how visitors use our website. You may disable cookies in your browser settings, though some features may not function correctly.</p>
+      <h2>Payments &amp; <em>Security</em></h2>
+      <p>Payment information is handled by PCI-compliant third-party processors (e.g. Stripe). GSYNCRO does not store full card numbers on our servers. We implement reasonable technical and organisational measures to protect your data against unauthorised access.</p>
+      <h2>How We Use Your <em>Data</em></h2>
+      <ul>
+        <li>To process and fulfil orders</li>
+        <li>To communicate order updates and customer support responses</li>
+        <li>To send marketing communications where you have opted in</li>
+        <li>To improve our website, products, and services</li>
+      </ul>
+      <h2>Your <em>Rights</em></h2>
+      <p>Depending on your location, you may have the right to access, correct, delete, or restrict processing of your personal data. To exercise these rights, contact <a href="mailto:privacy@gsyncro.com">privacy@gsyncro.com</a>.</p>
+      <p>We do not sell your personal information to third parties for their marketing purposes.</p>
+    </div>
+  </main>
+  <footer><div class="footer-bottom"><p>© 2025 GSYNCRO. <a href="terms.html">Terms</a> · <a href="contact.html">Contact</a></p></div></footer>
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartSidebar">
+    <div class="cart-header"><h2>YOUR BAG (<span id="bagCount">0</span>)</h2><button onclick="closeCart()">✕</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary"><button class="view-bag-btn">VIEW BAG</button></div>
+  </div>
+  <script src="store.js"></script><script src="common.js"></script>
+</body>
+</html>
